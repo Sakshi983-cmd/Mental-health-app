@@ -1,4 +1,5 @@
 🧠 Mental Health Assessment App
+
 📌 Overview
 This project is a Mental Health Assessment App built using Python, scikit‑learn, SQL, Streamlit, and Matplotlib.
 It leverages PHQ‑9 (Depression) and GAD‑7 (Anxiety) questionnaire data to train machine learning classifiers that predict mental health conditions with high accuracy.
