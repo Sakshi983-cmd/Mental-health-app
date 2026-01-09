@@ -1,12 +1,8 @@
 import streamlit as st
 import pandas as pd
-import joblib
 import matplotlib.pyplot as plt
 
 st.title("🧠 Mental Health Assessment App")
-
-# Load trained model
-model = joblib.load("mental_health_model.pkl")
 
 # PHQ-9 Questions
 phq9_questions = [
@@ -42,11 +38,6 @@ if st.button("Submit"):
     else:
         st.error("Severe depression. It's recommended to seek professional help.")
 
-    # Model prediction
-    input_df = pd.DataFrame([scores], columns=[f"PHQ{i}" for i in range(1,10)])
-    prediction = model.predict(input_df)[0]
-    st.write(f"ML Model Prediction: {prediction}")
-
     # Dashboard visualization
     fig, ax = plt.subplots()
     ax.bar(range(1,10), scores, color="skyblue")
@@ -54,4 +45,3 @@ if st.button("Submit"):
     ax.set_xlabel("Question")
     ax.set_ylabel("Score")
     st.pyplot(fig)
-
